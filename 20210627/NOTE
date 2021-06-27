@@ -1,0 +1,18 @@
+select에 관해.
+
+- 선언
+int select(int n, fd_set* readfds, fd_set* writefds, fd_set* exceptfds, struct timeval* timeout)
+
+- 내용
+- 왜 쓰이나?
+:파일제어를 위한 read/write는 블록킹호출이고, 이는 여러개의 fd를 사용할때 원하지 않는 블로킹을 유발할 수 있다.
+두개의 a, b라는 fd가 있을 때, read(a)이후에 read(b)를 호출하면, b가 먼저 준비가 되어 읽기가 가능한 상태임에도
+읽을 수가 없다.
+- 어떻게 쓰이나?
+: 그럼 이 fd친구들을 묶음으로 지정해놓고, 이들 중 하나만 사용가능하면 통지를 해준다! fd들 중에 select하는 느낌으로.
+- 주의해야 할 점은?
+: 기본적으로 등록가능한 최대 파일디스크립터 수는 1024개이다. (변경 가능?)
+: 첫번째 인자 n은 fd_set에 등록된 파일디스크립터+1로 설정
+: timeval은 select가 리턴되고 나면 남은 time으로 설정 되므로 다음 select전에 초기화 해야함.
+
+- pselect도 참고. select의 확장기능 제공.(나중에 시그널 공부시 다시 보기)
