@@ -1,0 +1,17 @@
+poll
+
+- select의 몇가지 결점을 보완
+int poll(struct pollfd* fds, nfds_t nfds, int timeout)
+- 사용
+: pollfd라는 구조체배열을 사용.
+: pollfd는 모니터링할 파일디스크립터, 그리고 입력event, 출력event로 구성.
+
+- select vs poll
+: select호출의 첫번째 인자! 불편해..
+: 파일디스크립터를 검사하는 효율성.(정확히는 좀더 파악필요)
+: select는 호출시마다 fd_set와 timval을 초기화 해야함. 하지만 poll은 안그래도됨
+
+
+vfs(virtual file system)
+페이지캐시와 스왑
+페이지 쓰기 저장
