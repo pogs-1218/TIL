@@ -1,0 +1,5 @@
+- vector input/output
+ : scatter, gatter
+ : different with sequantial input/output
+ : use 'struct iovec'
+  :: it looks like WSABUF in winsock2 library
