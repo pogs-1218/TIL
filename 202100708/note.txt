@@ -1,0 +1,9 @@
+- epoll
+ : epoll is 'event poll'
+ : It is similiar with window's iocp.
+
+- file mapping
+ : map the file to the memory
+ : use mmap function
+
+ ** need more sample projects!
