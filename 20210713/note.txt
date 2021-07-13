@@ -1,0 +1,19 @@
+- synchronous/asynchronous and synchronized/nonsynchronized
+: need to understand how input/ouput is worked in the linux kernel.
+: understand user level buffer, kernel buffer, disk.
+
+- io scheduler.
+: disk address
+: disk component(physical, logical)
+: 
+
+- io scheduling algorithms
+
+TODO:
+- Use <aio.h>
+- Compare between synchronous and asynchronous in the test project.
+- Understand disk cache, page, page fault. and file in both Windows and Linux.
+
+By now, I have been covered I/O in Linux. Learn how to use basic linux system call,
+read, write, open and so on. Learn beffering in user level and advanced linux system call for performance.
+Let's do the final project in order to understand I/O in linux system.
