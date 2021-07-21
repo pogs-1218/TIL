@@ -1,0 +1,7 @@
+file & file metadata
+- file with inode.
+- In order to get file metadata, use stat, fstat, lstat functions.
+  - https://man7.org/linux/man-pages/man7/inode.7.html
+- Extended file attributes(xattrs). (Will it be used..??)
+  - https://man7.org/linux/man-pages/man7/xattr.7.html
+  - key/value user define attributes
