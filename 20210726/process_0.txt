@@ -1,0 +1,7 @@
+linux process
+- create, terminate
+- pid_t, getpid, getppid
+- load program image to the memory then execute the program.
+
+Functions
+- fork, exec, exit, waitpid, system
