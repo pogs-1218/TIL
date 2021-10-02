@@ -1,8 +1,11 @@
 #include <array>
+#include <charconv>  // to_chars
 #include <initializer_list>
 #include <iostream>
 #include <optional>  // optional
-#include <utility>   // pair
+#include <string>
+#include <string_view>
+#include <utility>  // pair
 #include <vector>
 
 #include "my_class.h"
@@ -32,6 +35,10 @@ int MakeSum(std::initializer_list<int> values) {
 
 void TestCasting(int i) {
   // nothing
+}
+
+std::string_view ExtractExtension(std::string_view filename) {
+  return filename.substr(filename.rfind('.'));
 }
 
 struct Employee {
@@ -95,6 +102,36 @@ int main() {
   // auto test_class { GetTestClass() };
   // const auto& test_class { GetTestClass() };
   decltype(GetTestClass()) test_class{GetTestClass()};
+
+  const char* rawstr{R"(Hello "World"!)"};
+  std::cout << rawstr << std::endl;
+
+  std::string s1{"123"};
+  std::string s2{"123"};
+  auto comp{s1 <=> s2};  // since c++20
+  if (std::is_lt(comp)) std::cout << "less" << std::endl;
+  if (std::is_gt(comp)) std::cout << "greater" << std::endl;
+  if (std::is_eq(comp)) std::cout << "equal" << std::endl;
+
+  std::string full_str{"hello,world"};
+  std::cout << full_str.substr(6, 5) << std::endl;
+
+  using namespace std::string_literals;
+  std::vector const_char_vec{"john", "sam", "doe"};
+  std::vector string_vec{"john"s, "sam"s, "doe"s};
+
+  // Should I know below? to_chars, from_chars. why needed? performance?
+  const std::size_t buffer_size{50};
+  std::string out(buffer_size, ' ');
+  auto result{std::to_chars(out.data(), out.data() + out.size(), 12345)};
+  if (result.ec == std::errc{}) std::cout << out << std::endl;
+
+  // Have to know what is overcomed by using string_view.
+  // Have to know string and string_view casting.
+  // Have to know the life time.(memory problem)
+  std::string origin_string{"test.txt"};
+  std::cout << ExtractExtension(origin_string) << std::endl;
+  std::cout << ExtractExtension("file.txt") << std::endl;
 
   return 0;
 }
