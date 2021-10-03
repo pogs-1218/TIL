@@ -1,8 +1,23 @@
 package com.til;
-
 /*
   My first java program!
  */
+class Box{
+    double width;
+    double height;
+    double depth;
+
+    Box(double w, double h, double d){
+        width = w;
+        height = h;
+        depth = d;
+    }
+
+    double volume(){
+        return width * height * depth;
+    }
+}
+
 // Test to comment. It is same as c++.
  public class Main {
     public static void main(String[] args) {
@@ -47,6 +62,15 @@ package com.til;
                 System.out.println("invalid str");
                 break;
         }
+
+        Box myBox = new Box(10, 20, 15);
+
+        // It's different with c++.
+        // Class instance(object) is always a reference. so members are not copied.
+        Box myBox2 = myBox;
+
+        System.out.println("Volume is " + myBox.volume());
+        System.out.println("Volume is " + myBox2.volume());
     }
 
     public static void compare(int x, int y) {
