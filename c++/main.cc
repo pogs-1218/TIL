@@ -1,5 +1,6 @@
 #include <array>
 #include <charconv>  // to_chars
+#include <cstring>   // memset
 #include <initializer_list>
 #include <iostream>
 #include <optional>  // optional
@@ -132,6 +133,25 @@ int main() {
   std::string origin_string{"test.txt"};
   std::cout << ExtractExtension(origin_string) << std::endl;
   std::cout << ExtractExtension("file.txt") << std::endl;
+
+  // new vs malloc
+  TestClass* tc_malloc{(TestClass*)malloc(sizeof(TestClass))};
+  TestClass* tc_new{new TestClass()};
+
+  // if there is not enough memory? how to recover?
+  // NOTE: How to produce that situation by myself?
+  int* int_ptr{new (std::nothrow) int};
+
+  // Initialize an array with variable ways.
+  // NOTE: Different performance ?
+  int int_arr1[5]{};
+  int int_arr2[5];
+  memset(int_arr2, 0, sizeof(int_arr2));
+  int int_arr3[5];
+  std::fill(int_arr3, int_arr3 + sizeof(int_arr3), 0);
+
+  // std::size, since c++17
+  std::cout << std::size(int_arr2) << std::endl;
 
   return 0;
 }
