@@ -1,16 +1,14 @@
-all: main ex2-1
+CC = g++
+CXXFLAGS = -g -Wall --std=c++20
+OBJS = main.o
+TARGET = main
 
-main: main.o
-	g++ -o main main.o
+$(TARGET): $(OBJS)
+	$(CC) $(CXXFLAGS) -o $@ $(OBJS)
 
-ex2-1 : ex2-1.o
-	g++ -o ex2-1 ex2-1.o
+main.o: my_class.h main.cc
+	$(CC) $(CXXFLAGS) -c main.cc
 
-main.o: main.cc
-	g++ -c main.cc -g -Wall --std=c++20
-
-ex2-1.o: ex2-1.cc
-	g++ -c ex2-1.cc -g -Wall --std=c++20
-
+.PHONY: clean
 clean:
-	rm -f *.o main ex2-1
+	rm -f $(OBJS) main ex2-1
