@@ -3,6 +3,7 @@
 #include <ratio>
 #include <iomanip>
 #include <sstream>
+#include <cmath>
 
 int main()
 {
@@ -71,6 +72,24 @@ int main()
   char buffer[80] { 0 };
   std::strftime(buffer, sizeof(buffer), "%H:%M:%S", t);
   std::cout << buffer << std::endl;
+
+  auto start { std::chrono::high_resolution_clock::now() };
+  //auto start { std::chrono::system_clock::now() };
+  double d { 0 };
+  for(int i = 0; i < 10000000; ++i)
+    d += std::sqrt(std::sin(i) * cos(i));
+
+  auto end { std::chrono::high_resolution_clock::now() };
+  //auto end { std::chrono::system_clock::now() };
+  auto diff { end - start };
+
+  std::cout << std::chrono::duration<double, std::milli>{diff}.count() << "ms" << std::endl;
+
+  std::chrono::time_point<std::chrono::steady_clock> tp1;
+  tp1 += std::chrono::minutes{10};
+  auto ddd1 { tp1.time_since_epoch() };
+  std::chrono::duration<double> ddd2 { ddd1 };
+  std::cout << ddd2.count() << " seconds" << std::endl;
   
-  return 0;
+ return 0;
 }
