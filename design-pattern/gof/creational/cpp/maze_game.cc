@@ -32,7 +32,7 @@ Maze* MazeGame::CreateMaze(MazeFactory& factory) {
 
   maze->AddRoom(room1);
   maze->AddRoom(room2);
- 
+
   room1->set_side(Direction::North, factory.MakeWall());
   room1->set_side(Direction::East, door);
   room1->set_side(Direction::South, factory.MakeWall());
@@ -46,6 +46,7 @@ Maze* MazeGame::CreateMaze(MazeFactory& factory) {
   return maze;
 }
 
+// Q: What's difference with MazeFactory?
 Maze* MazeGame::CreateMaze(MazeBuilder& builder) {
   builder.BuildMaze();
 

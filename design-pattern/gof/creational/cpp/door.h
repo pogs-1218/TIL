@@ -2,6 +2,8 @@
 #define DOOR_H_
 
 #include "map_site.h"
+#include "room.h"
+
 #include <iostream>
 
 class Door: public MapSite {
