@@ -1,5 +1,0 @@
-/Users/pigwanhun/Workspace/TIL/c++/cmake_build/builds/CMakeFiles/rebuild_cache.dir
-/Users/pigwanhun/Workspace/TIL/c++/cmake_build/builds/CMakeFiles/edit_cache.dir
-/Users/pigwanhun/Workspace/TIL/c++/cmake_build/builds/CMakeFiles/foo.dir
-/Users/pigwanhun/Workspace/TIL/c++/cmake_build/builds/boo/CMakeFiles/rebuild_cache.dir
-/Users/pigwanhun/Workspace/TIL/c++/cmake_build/builds/boo/CMakeFiles/edit_cache.dir
