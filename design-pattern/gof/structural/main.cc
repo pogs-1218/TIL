@@ -1,6 +1,9 @@
 #include <iostream>
-#include "composite.h"
-#include "leaf.h"
+#include "composite/composite.h"
+#include "composite/leaf.h"
+
+#include "bridge/abstraction1.h"
+#include "bridge/implementor1.h"
 
 int main(){
   // Build tree !
@@ -16,6 +19,9 @@ int main(){
   // Print
   std::cout << comp1->Operation() << std::endl;
   std::cout << comp2->Operation() << std::endl;
+
+  Abstraction* abs = new Abstraction1{new Implementor1};
+  abs->Operation();
   
   return 0;
 }
