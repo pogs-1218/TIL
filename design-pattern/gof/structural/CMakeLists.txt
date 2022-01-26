@@ -4,6 +4,7 @@ project(structural)
 
 set(SOURCES
   main.cc
+  facade/facade.cc
   )
 
 add_executable(structural ${SOURCES})
