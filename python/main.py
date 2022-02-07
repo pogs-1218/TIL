@@ -1,6 +1,9 @@
-from math import *
-#import math
+#from math import *
+import sys
+import math
 from enum import Enum
+from fibo import *
+import pack1.module1
 
 phrase = "Giraffe Academy"
 print(phrase.upper().isupper())
@@ -16,9 +19,9 @@ print(pow(my_num, 3))
 print(abs(my_num))
 my_float = 4.3
 print(round(my_float))
-print(floor(my_float))
-print(ceil(my_float))
-print(sqrt(my_float))
+print(math.floor(my_float))
+print(math.ceil(my_float))
+print(math.sqrt(my_float))
 
 # user input
 # name = input("Enter your name: ")  # until new line('\n')
@@ -106,3 +109,18 @@ def ff(a, L=None):
 print(ff(1))
 print(ff(2))
 print(ff(3))
+
+
+fib(100)
+
+pack1.module1.print_module1()
+# pack2.module1.print_module1()  # not available
+
+print(f"The value of pi is approximately {math.pi:.3f}")
+print("The value of pi is approximately {pi:.3f}".format(pi=math.pi))
+sys.stdout.write(f"The value of pi is approximately {math.pi:.3f}\n")
+
+# The advantage is that the file is properly closed after its suite finishes,
+# even if an exception is raised at some point. 
+with open("test_file", "w") as test_file:
+  test_file.write("This is the test\n")
