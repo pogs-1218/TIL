@@ -5,8 +5,11 @@ class State;
 
 class Connection {
  public:
+  Connection();
+  ~Connection();
+
   void Open();
-  void Transmit();
+  void Transmit(const std::string& data);
   void Close();
 
  private:
