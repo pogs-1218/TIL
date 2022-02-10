@@ -1,6 +1,8 @@
 #ifndef STATE_CONNECTION_H_
 #define STATE_CONNECTION_H_
 
+#include <string>
+
 class State;
 
 class Connection {
