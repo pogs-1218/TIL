@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 struct Point<T> {
     x: T,
     y: T,
@@ -38,7 +40,7 @@ fn main() {
     let float_ret = float.distance_from_origin();
 }
 
-fn largest<T>(list: &[T]) -> T {
+fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
     let mut largest = list[0];
     for &item in list {
         if item > largest {
