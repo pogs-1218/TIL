@@ -15,7 +15,7 @@ class Simple {
     value_ = other.value_;
   }
 
-  Simple& operator=(Simple&& other) {
+Simple& operator=(Simple&& other) {
     std::cout << "move assignment" << std::endl;
     value_ = other.value_;
     return *this;
@@ -84,6 +84,9 @@ int main() {
 
   UseSharedPtr(shared_simple);
   std::cout << shared_simple.use_count() << std::endl;
+
+
+
 
   return 0;
 }

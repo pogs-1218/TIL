@@ -192,3 +192,15 @@ def test_generator():
 
 for i in test_generator():
   print(i)
+
+
+class TestClass:
+  def __init__(self):
+    self.str = "is a test class"
+
+  def change_str(self, new_str):
+    self.str = new_str
+
+
+
+
