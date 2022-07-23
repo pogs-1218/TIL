@@ -50,6 +50,25 @@ public class Basic {
         month_days[3] = 12;
         System.out.println("month 3: " + month_days[3]);
         System.out.println("how about 9?: " + month_days[9]);
-        System.out.println("how about overflow?: " + month_days[13]); // Throws exception
+        //System.out.println("how about overflow?: " + month_days[13]); // Throws exception
+
+        // Initialize with declaration.
+        // Q. allocated in heap like using new keyword also?
+        int years[] = {1, 2, 3, 4, 5};
+        System.out.println(years[1]);
+
+        // Since Java 10, type inference is supported. Only for local variable.
+        // I think,the compiler might not know the type of instance variable if the member is declared as var
+        // as the member variable isn't intialized yet.
+        var avg = 10.0;  // maybe double.
+
+        String str = "This is a test";
+        System.out.println(str);
+
+        // if-else, switch, while, for, and break, continue are alomost same with C++. Skip!
+        // for-each, like a range based loop of C++
+        for(var month : month_days){
+            System.out.print(month + ", ");
+        }
     }
 }
